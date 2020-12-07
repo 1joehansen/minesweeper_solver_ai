@@ -23,6 +23,8 @@ class Minesweeper:
         self.board = np.ndarray((16, 30))
         self.board.fill(10)
 
+        self.numbered_cells = {}
+
     def get_board(self):
         """Updates the board"""
 
@@ -32,6 +34,9 @@ class Minesweeper:
            1-8 - indicates how many adjacent bombs
             -1 - flagged
         """
+        print("Getting board...")
+
+        self.numbered_cells = {}
 
         for row in range(16):
             for col in range(30):
@@ -43,10 +48,14 @@ class Minesweeper:
                     self.board[row, col] = int(10)
                 elif "open" in cell_class:
                     self.board[row, col] = int(cell_class[-1])
+                    if int(cell_class[-1]) != 0:
+                        self.numbered_cells[(row, col)] = int(cell_class[-1])
                 elif "bombflagged" in cell_class:
                     self.board[row, col] = int(-1)
 
     def click(self, mode='left', cell=(1, 1)):
+        """Performs either a left or right click at cell
+           cell: a tuple ranging from (1, 1) to (16, 30)"""
 
         elem = self.driver.find_element_by_id(f"{cell[0]}_{cell[1]}")
 
@@ -61,6 +70,14 @@ class Minesweeper:
     def safe_flag(self):
         """If a cell with value x only touches x number of cells, flag all its adjacent cells"""
 
+        for cell in self.numbered_cells:
+            print(f"On cell: {cell}")
+            if self.numbered_cells[cell] == self.enumerate_adjacent_blank_cells(cell):
+
+                for ad_cell in self.get_adjacent_cells(cell):
+                    cell_plus_one = tuple(np.add(ad_cell, (1, 1)))
+                    self.click(mode="right", cell=cell_plus_one)
+
     def safe_click(self):
         """If a cell with value x has x adjacent flags, click all other adjacent cells"""
 
@@ -72,11 +89,62 @@ class Minesweeper:
 
 # = = = = = = = = Helper Functions = = = = = = = =
 
-    def enumerate_adjacent_blank_cells(self):
-        """For a given cell, return the number of adjacent blank cells"""
+    def get_adjacent_cells(self, cell):
+        """For a given cell, return a list of tuples for its adjacent cells"""
 
-    def enumerate_adjacent_flagged_cells(self):
-        """For a given cell, return the number of adjacent flagged cells"""
+        adjacent_cells = []
+
+        # up left
+        test_cell = tuple(np.add(cell, (-1, -1)))
+        if not (test_cell[0] < 0 or test_cell[1] < 0 or test_cell[0] > 15 or test_cell[1] > 29):
+            adjacent_cells.append(test_cell)
+        # up mid
+        test_cell = tuple(np.add(cell, (-1, 0)))
+        if not (test_cell[0] < 0 or test_cell[1] < 0 or test_cell[0] > 15 or test_cell[1] > 29):
+            adjacent_cells.append(test_cell)
+        # up right
+        test_cell = tuple(np.add(cell, (-1, 1)))
+        if not (test_cell[0] < 0 or test_cell[1] < 0 or test_cell[0] > 15 or test_cell[1] > 29):
+            adjacent_cells.append(test_cell)
+        # left
+        test_cell = tuple(np.add(cell, (0, -1)))
+        if not (test_cell[0] < 0 or test_cell[1] < 0 or test_cell[0] > 15 or test_cell[1] > 29):
+            adjacent_cells.append(test_cell)
+        # right
+        test_cell = tuple(np.add(cell, (0, 1)))
+        if not (test_cell[0] < 0 or test_cell[1] < 0 or test_cell[0] > 15 or test_cell[1] > 29):
+            adjacent_cells.append(test_cell)
+        # down left
+        test_cell = tuple(np.add(cell, (1, -1)))
+        if not (test_cell[0] < 0 or test_cell[1] < 0 or test_cell[0] > 15 or test_cell[1] > 29):
+            adjacent_cells.append(test_cell)
+        # down mid
+        test_cell = tuple(np.add(cell, (1, 0)))
+        if not (test_cell[0] < 0 or test_cell[1] < 0 or test_cell[0] > 15 or test_cell[1] > 29):
+            adjacent_cells.append(test_cell)
+        # down right
+        test_cell = tuple(np.add(cell, (1, 1)))
+        if not (test_cell[0] < 0 or test_cell[1] < 0 or test_cell[0] > 15 or test_cell[1] > 29):
+            adjacent_cells.append(test_cell)
+
+        return adjacent_cells
+
+    def enumerate_adjacent_blank_cells(self, cell):
+        """For a given cell, return the number of adjacent blank cells
+           cell: a tuple ranging from (1, 1) to (16, 30)"""
+
+        adjacent = 0
+        adjacent_cells = self.get_adjacent_cells(cell)
+
+        for cell in adjacent_cells:
+            if self.board[cell] == 10:
+                adjacent += 1
+
+        return adjacent
+
+    def enumerate_adjacent_flagged_cells(self, cell):
+        """For a given cell, return the number of adjacent flagged cells
+           cell: a tuple ranging from (1, 1) to (16, 30)"""
 
     def print_board(self):
         """Prints the updated board"""
@@ -97,9 +165,9 @@ if __name__ == '__main__':
 
     game.click()
 
-    game.safe_flag()
+    # game.get_board()
 
-    # game.safe_click()
+    # game.safe_flag()
 
 
 
