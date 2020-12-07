@@ -75,8 +75,10 @@ class Minesweeper:
             if self.numbered_cells[cell] == self.enumerate_adjacent_blank_cells(cell):
 
                 for ad_cell in self.get_adjacent_cells(cell):
-                    cell_plus_one = tuple(np.add(ad_cell, (1, 1)))
-                    self.click(mode="right", cell=cell_plus_one)
+                    if self.board[ad_cell] != -1:
+                        cell_plus_one = tuple(np.add(ad_cell, (1, 1))) # Shift. The click cells start at 1_1
+                        self.click(mode="right", cell=cell_plus_one)
+                        self.board[ad_cell] = -1
 
     def safe_click(self):
         """If a cell with value x has x adjacent flags, click all other adjacent cells"""
