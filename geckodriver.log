@@ -573,3 +573,115 @@ Can't find symbol 'eglSwapBuffersWithDamageEXT'.
 Can't find symbol 'eglSetDamageRegionKHR'.
 JavaScript error: https://googleads.g.doubleclick.net/pagead/ads?guci=2.2.0.0.2.2.0.0&client=ca-pub-4459733198347558&output=html&h=600&slotname=8617415302&adk=4009309860&adf=329911602&pi=t.ma~as.8617415302&w=160&lmt=1607369471&psa=0&format=160x600&url=http%3A%2F%2Fminesweeperonline.com%2F%23200&flash=0&wgl=1&adsid=NT&tt_state=W3siaXNzdWVyT3JpZ2luIjoiaHR0cHM6Ly9hZHNlcnZpY2UuZ29vZ2xlLmNvbSIsInN0YXRlIjowfSx7Imlzc3Vlck9yaWdpbiI6Imh0dHBzOi8vYXR0ZXN0YXRpb24uYW5kcm9pZC5jb20iLCJzdGF0ZSI6MH1d&dt=1607369469919&bpp=2&bdt=684&idt=938&shv=r20201203&cbv=r20190131&ptt=9&saldr=aa&abxe=1&cookie=ID%3Defe32f18cba46008-22a7a68c3dc500db%3AT%3D1607369472%3ART%3D1607369472%3AS%3DALNI_MbFmIXffngcy0qqrpOzpvWc2Nxkag&prev_fmts=160x600&correlator=8175989522002&frm=20&pv=1&ga_vid=1026259114.1607369470&ga_sid=1607369471&ga_hid=1803843689&ga_fc=0&u_tz=-420&u_his=1&u_java=0&u_h=1080&u_w=1920&u_ah=1040&u_aw=1920&u_cd=24&u_nplug=0&u_nmime=0&adx=0&ady=1020&biw=1267&bih=895&scr_x=0&scr_y=0&eid=21068084&oid=3&pvsid=350722002267586&pem=763&rx=0&eae=0&fc=896&brdim=4%2C4%2C4%2C4%2C1920%2C0%2C1296%2C975%2C1284%2C895&vis=1&rsz=%7C%7CleEbr%7C&abl=CS&pfx=0&fu=8192&bc=23&ifi=2&uci=a!2&btvi=1&fsb=1&xpc=EokCYLwyei&p=http%3A//minesweeperonline.com&dtd=1475, line 1: SyntaxError: missing } after try block
 JavaScript note: https://googleads.g.doubleclick.net/pagead/ads?guci=2.2.0.0.2.2.0.0&client=ca-pub-4459733198347558&output=html&h=600&slotname=8617415302&adk=4009309860&adf=329911602&pi=t.ma~as.8617415302&w=160&lmt=1607369471&psa=0&format=160x600&url=http%3A%2F%2Fminesweeperonline.com%2F%23200&flash=0&wgl=1&adsid=NT&tt_state=W3siaXNzdWVyT3JpZ2luIjoiaHR0cHM6Ly9hZHNlcnZpY2UuZ29vZ2xlLmNvbSIsInN0YXRlIjowfSx7Imlzc3Vlck9yaWdpbiI6Imh0dHBzOi8vYXR0ZXN0YXRpb24uYW5kcm9pZC5jb20iLCJzdGF0ZSI6MH1d&dt=1607369469919&bpp=2&bdt=684&idt=938&shv=r20201203&cbv=r20190131&ptt=9&saldr=aa&abxe=1&cookie=ID%3Defe32f18cba46008-22a7a68c3dc500db%3AT%3D1607369472%3ART%3D1607369472%3AS%3DALNI_MbFmIXffngcy0qqrpOzpvWc2Nxkag&prev_fmts=160x600&correlator=8175989522002&frm=20&pv=1&ga_vid=1026259114.1607369470&ga_sid=1607369471&ga_hid=1803843689&ga_fc=0&u_tz=-420&u_his=1&u_java=0&u_h=1080&u_w=1920&u_ah=1040&u_aw=1920&u_cd=24&u_nplug=0&u_nmime=0&adx=0&ady=1020&biw=1267&bih=895&scr_x=0&scr_y=0&eid=21068084&oid=3&pvsid=350722002267586&pem=763&rx=0&eae=0&fc=896&brdim=4%2C4%2C4%2C4%2C1920%2C0%2C1296%2C975%2C1284%2C895&vis=1&rsz=%7C%7CleEbr%7C&abl=CS&pfx=0&fu=8192&bc=23&ifi=2&uci=a!2&btvi=1&fsb=1&xpc=EokCYLwyei&p=http%3A//minesweeperonline.com&dtd=1475, line 1: { opened at line 1, column 723
+1607369679423	Marionette	INFO	Stopped listening on port 58916
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1607398897426	geckodriver	INFO	Listening on 127.0.0.1:59550
+1607398900456	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\1joeh\\AppData\\Local\\Temp\\rust_mozprofilelfqTQj"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607398901509	Marionette	INFO	Listening on port 59559
+1607398901975	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+1607398941077	Marionette	INFO	Stopped listening on port 59559
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1607399026572	geckodriver	INFO	Listening on 127.0.0.1:59641
+1607399029596	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\1joeh\\AppData\\Local\\Temp\\rust_mozprofileTY0SLX"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607399030637	Marionette	INFO	Listening on port 59650
+1607399031113	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+1607400030780	Marionette	INFO	Stopped listening on port 59650
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1607400044640	geckodriver	INFO	Listening on 127.0.0.1:59775
+1607400047676	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\1joeh\\AppData\\Local\\Temp\\rust_mozprofileEk403x"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607400048726	Marionette	INFO	Listening on port 59783
+1607400049194	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+1607403364541	Marionette	INFO	Stopped listening on port 59783
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1607405635362	geckodriver	INFO	Listening on 127.0.0.1:60218
+1607405638439	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\1joeh\\AppData\\Local\\Temp\\rust_mozprofileH4Uikp"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607405639582	Marionette	INFO	Listening on port 60226
+1607405639976	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+1607406624150	Marionette	INFO	Stopped listening on port 60226
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1607406637551	geckodriver	INFO	Listening on 127.0.0.1:60343
+1607406640632	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\1joeh\\AppData\\Local\\Temp\\rust_mozprofileoO6qWH"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607406641669	Marionette	INFO	Listening on port 60352
+1607406642178	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 27: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 41: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 43: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 56: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 69: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 80: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 83: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 117: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 120: TypeError: document.registerElement is not a function
+JavaScript error: https://s0.2mdn.net/ads/richmedia/studio/mu/templates/brand_awareness_blanket/responsive/V1/index.html?e=69&leftOffset=0&topOffset=0&c=s1uUvyenyI&t=1&renderingType=2, line 125: TypeError: document.registerElement is not a function
+1607407006120	Marionette	INFO	Stopped listening on port 60352
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1607407022139	geckodriver	INFO	Listening on 127.0.0.1:60511
+1607407025165	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\1joeh\\AppData\\Local\\Temp\\rust_mozprofileZy7FcC"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607407026199	Marionette	INFO	Listening on port 60519
+1607407026681	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+1607407164360	Marionette	INFO	Stopped listening on port 60519
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1607407174508	geckodriver	INFO	Listening on 127.0.0.1:60616
+1607407177534	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\1joeh\\AppData\\Local\\Temp\\rust_mozprofileqIHRh9"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607407178670	Marionette	INFO	Listening on port 60624
+1607407179058	Marionette	WARN	TLS certificate errors will be ignored for this session
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.

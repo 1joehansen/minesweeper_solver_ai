@@ -71,17 +71,22 @@ class Minesweeper:
         """If a cell with value x only touches x number of cells, flag all its adjacent cells"""
 
         for cell in self.numbered_cells:
-            print(f"On cell: {cell}")
+            # print(f"On Cell: {cell}={self.board[cell]}")
             if self.numbered_cells[cell] == self.enumerate_adjacent_blank_cells(cell):
-
-                for ad_cell in self.get_adjacent_cells(cell):
-                    if self.board[ad_cell] != -1:
-                        cell_plus_one = tuple(np.add(ad_cell, (1, 1))) # Shift. The click cells start at 1_1
-                        self.click(mode="right", cell=cell_plus_one)
-                        self.board[ad_cell] = -1
+                for ad_cell in self.get_adjacent_blank_cells(cell):
+                    # print(f"    Adjacent Blank Cell: {ad_cell}   Board Val: {self.board[ad_cell]}")
+                    cell_plus_one = tuple(np.add(ad_cell, (1, 1))) # Shift. The click cells start at 1_1
+                    self.click(mode="right", cell=cell_plus_one)
+                    self.board[ad_cell] = -1
 
     def safe_click(self):
         """If a cell with value x has x adjacent flags, click all other adjacent cells"""
+
+        for cell in self.numbered_cells:
+            if self.numbered_cells[cell] == self.enumerate_adjacent_flagged_cells(cell):
+                for ad_cell in self.get_adjacent_blank_cells(cell):
+                    cell_plus_one = tuple(np.add(ad_cell, (1, 1))) # Shift. The click cells start at 1_1
+                    self.click(mode="left", cell=cell_plus_one)
 
     def expected(self):
         """for a given board state, simulate all valid arrangements of bombs
@@ -131,6 +136,19 @@ class Minesweeper:
 
         return adjacent_cells
 
+    def get_adjacent_blank_cells(self, cell):
+        """For a given cell, return a tuple list of adjacent blank cells
+           cell: a tuple ranging from (1, 1) to (16, 30)"""
+
+        adjacent_blank_cells = []
+        adjacent_cells = self.get_adjacent_cells(cell)
+
+        for cell in adjacent_cells:
+            if self.board[cell] == 10:
+                adjacent_blank_cells.append(cell)
+
+        return adjacent_blank_cells
+
     def enumerate_adjacent_blank_cells(self, cell):
         """For a given cell, return the number of adjacent blank cells
            cell: a tuple ranging from (1, 1) to (16, 30)"""
@@ -139,7 +157,7 @@ class Minesweeper:
         adjacent_cells = self.get_adjacent_cells(cell)
 
         for cell in adjacent_cells:
-            if self.board[cell] == 10:
+            if self.board[cell] == 10 or self.board[cell] == -1:
                 adjacent += 1
 
         return adjacent
@@ -147,6 +165,15 @@ class Minesweeper:
     def enumerate_adjacent_flagged_cells(self, cell):
         """For a given cell, return the number of adjacent flagged cells
            cell: a tuple ranging from (1, 1) to (16, 30)"""
+
+        adjacent_f = 0
+        adjacent_cells = self.get_adjacent_cells(cell)
+
+        for cell in adjacent_cells:
+            if self.board[cell] == -1:
+                adjacent_f += 1
+
+        return adjacent_f
 
     def print_board(self):
         """Prints the updated board"""
@@ -167,7 +194,7 @@ if __name__ == '__main__':
 
     game.click()
 
-    # game.get_board()
+    game.get_board()
 
     # game.safe_flag()
 
