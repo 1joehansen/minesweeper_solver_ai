@@ -3,6 +3,7 @@ from selenium.webdriver import ActionChains
 from selenium import webdriver
 from webdriver_manager.firefox import GeckoDriverManager
 import numpy as np
+from random import randrange
 
 
 # REQUIRES FIREFOX TO WORK
@@ -57,6 +58,8 @@ class Minesweeper:
         """Performs either a left or right click at cell
            cell: a tuple ranging from (1, 1) to (16, 30)"""
 
+        cell = (int(cell[0]), int(cell[1]))
+
         elem = self.driver.find_element_by_id(f"{cell[0]}_{cell[1]}")
 
         if mode == "left":
@@ -70,6 +73,8 @@ class Minesweeper:
     def safe_flag(self):
         """If a cell with value x only touches x number of cells, flag all its adjacent cells"""
 
+        cells_flagged = 0
+
         for cell in self.numbered_cells:
             # print(f"On Cell: {cell}={self.board[cell]}")
             if self.numbered_cells[cell] == self.enumerate_adjacent_blank_cells(cell):
@@ -78,23 +83,58 @@ class Minesweeper:
                     cell_plus_one = tuple(np.add(ad_cell, (1, 1))) # Shift. The click cells start at 1_1
                     self.click(mode="right", cell=cell_plus_one)
                     self.board[ad_cell] = -1
+                    cells_flagged += 1
+
+        if cells_flagged == 0:
+            return None
 
     def safe_click(self):
         """If a cell with value x has x adjacent flags, click all other adjacent cells"""
+
+        cells_clicked = 0
 
         for cell in self.numbered_cells:
             if self.numbered_cells[cell] == self.enumerate_adjacent_flagged_cells(cell):
                 for ad_cell in self.get_adjacent_blank_cells(cell):
                     cell_plus_one = tuple(np.add(ad_cell, (1, 1))) # Shift. The click cells start at 1_1
                     self.click(mode="left", cell=cell_plus_one)
+                    cells_clicked += 1
 
-    def expected(self):
+        if cells_clicked == 0:
+            return None
+
+    def dumb_guess(self):
+
+        print("Dumb Guess...")
+
+        blanks = self.get_blank_cells()
+
+        select_cell = blanks[randrange(0, len(blanks))]
+
+        cell_plus_one = tuple(np.add(select_cell, (1, 1)))  # Shift. The click cells start at 1_1
+        self.click(mode="left", cell=cell_plus_one)
+
+
+
+    def expected_guess(self):
         """for a given board state, simulate all valid arrangements of bombs
            find the probability of a bomb being in each cell
            flag the near 100% cells
            click the near 0% cells"""
 
 # = = = = = = = = Helper Functions = = = = = = = =
+
+    def get_blank_cells(self):
+        """returns a list of blank cells"""
+
+        blanks = []
+
+        for row in range(16):
+            for col in range(30):
+                if self.board[row, col] == 10:
+                    blanks.append((row, col))
+
+        return blanks
 
     def get_adjacent_cells(self, cell):
         """For a given cell, return a list of tuples for its adjacent cells"""
@@ -187,6 +227,24 @@ class Minesweeper:
                 print(f"{'{0:0=2d}'.format(int(self.board[row, col]))} ", end='')
             print("")
 
+    def loop(self):
+
+        game.get_board()
+
+        for i in range(10):
+            game.safe_flag()
+            game.safe_click()
+            game.get_board()
+
+            if game.safe_flag() is None:
+                if game.safe_click() is None:
+                    game.dumb_guess()
+                    game.get_board()
+
+            if self.driver.find_element_by_id("face").get_attribute("class") == "facedead":
+                print("Game Over")
+                break
+
 
 if __name__ == '__main__':
 
@@ -194,7 +252,7 @@ if __name__ == '__main__':
 
     game.click()
 
-    game.get_board()
+    # game.get_board()
 
     # game.safe_flag()
 
