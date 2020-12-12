@@ -229,17 +229,18 @@ class Minesweeper:
 
     def loop(self):
 
-        game.get_board()
-
         for i in range(10):
+            game.get_board()
+
             game.safe_flag()
             game.safe_click()
             game.get_board()
 
+            game.safe_flag()
+
             if game.safe_flag() is None:
                 if game.safe_click() is None:
                     game.dumb_guess()
-                    game.get_board()
 
             if self.driver.find_element_by_id("face").get_attribute("class") == "facedead":
                 print("Game Over")
